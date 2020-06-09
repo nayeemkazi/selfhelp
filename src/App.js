@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import album from "./vendor/Album";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import motivation from "./components/motivation";
+import yoga from "./components/yoga";
+import relax from "./components/relax";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={album} />
+        <Route exact path="/motivation" component={motivation} />
+        <Route exact path="/yoga" component={yoga} />
+        <Route exact path="/relaxation" component={relax} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
